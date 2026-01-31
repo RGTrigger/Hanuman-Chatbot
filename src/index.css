@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hanuman Chatbot Design System
+   Inspired by Hindu temple aesthetics - saffron, vermillion, gold, and sacred cream
+   All colors MUST be HSL.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Sacred Saffron - Primary brand color */
+    --background: 35 50% 96%;
+    --foreground: 20 80% 12%;
+
+    /* Warm cream cards like temple walls */
+    --card: 38 45% 94%;
+    --card-foreground: 20 80% 12%;
+
+    --popover: 38 45% 94%;
+    --popover-foreground: 20 80% 12%;
+
+    /* Deep Vermillion/Sindoor Red - Primary action color */
+    --primary: 5 75% 45%;
+    --primary-foreground: 40 100% 97%;
+
+    /* Warm Saffron Orange - Secondary */
+    --secondary: 28 90% 55%;
+    --secondary-foreground: 40 100% 97%;
+
+    /* Muted temple stone */
+    --muted: 35 30% 88%;
+    --muted-foreground: 20 30% 40%;
+
+    /* Golden Accent */
+    --accent: 43 85% 55%;
+    --accent-foreground: 20 80% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Warm border tones */
+    --border: 30 25% 82%;
+    --input: 35 35% 90%;
+    --ring: 5 75% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom Hanuman tokens */
+    --hanuman-saffron: 25 95% 55%;
+    --hanuman-vermillion: 5 75% 45%;
+    --hanuman-gold: 43 85% 55%;
+    --hanuman-cream: 40 50% 96%;
+    --hanuman-deep-maroon: 350 65% 30%;
+    --hanuman-temple-stone: 35 20% 75%;
+    --hanuman-sacred-red: 0 70% 50%;
+
+    /* Gradients */
+    --gradient-sacred: linear-gradient(135deg, hsl(25 95% 55%) 0%, hsl(5 75% 45%) 50%, hsl(350 65% 30%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(43 85% 65%) 0%, hsl(43 85% 55%) 50%, hsl(35 80% 45%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(38 45% 96%) 0%, hsl(35 50% 92%) 100%);
+    --gradient-message-user: linear-gradient(135deg, hsl(5 75% 45%) 0%, hsl(350 65% 35%) 100%);
+    --gradient-message-ai: linear-gradient(135deg, hsl(43 85% 55% / 0.15) 0%, hsl(35 50% 92%) 100%);
+
+    /* Shadows */
+    --shadow-sacred: 0 4px 20px -4px hsl(5 75% 45% / 0.25);
+    --shadow-gold: 0 4px 20px -4px hsl(43 85% 55% / 0.35);
+    --shadow-soft: 0 2px 12px -2px hsl(20 30% 20% / 0.1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 20 25% 8%;
+    --foreground: 40 30% 90%;
+
+    --card: 20 20% 12%;
+    --card-foreground: 40 30% 90%;
+
+    --popover: 20 20% 12%;
+    --popover-foreground: 40 30% 90%;
+
+    --primary: 25 90% 55%;
+    --primary-foreground: 20 25% 8%;
+
+    --secondary: 5 70% 50%;
+    --secondary-foreground: 40 30% 90%;
+
+    --muted: 20 20% 18%;
+    --muted-foreground: 35 25% 60%;
+
+    --accent: 43 85% 55%;
+    --accent-foreground: 20 25% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 20% 22%;
+    --input: 20 20% 18%;
+    --ring: 25 90% 55%;
+
+    --hanuman-saffron: 25 90% 50%;
+    --hanuman-vermillion: 5 70% 50%;
+    --hanuman-gold: 43 80% 50%;
+    --hanuman-cream: 35 30% 15%;
+    --hanuman-deep-maroon: 350 60% 25%;
+
+    --gradient-sacred: linear-gradient(135deg, hsl(25 90% 50%) 0%, hsl(5 70% 50%) 50%, hsl(350 60% 25%) 100%);
+    --gradient-message-user: linear-gradient(135deg, hsl(25 90% 50%) 0%, hsl(5 70% 45%) 100%);
+    --gradient-message-ai: linear-gradient(135deg, hsl(43 80% 50% / 0.1) 0%, hsl(20 20% 15%) 100%);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+  }
+
+  .font-devanagari {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+}
+
+@layer components {
+  /* Sacred glow animation for important elements */
+  .sacred-glow {
+    animation: sacred-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes sacred-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--hanuman-saffron) / 0.3),
+                  0 0 40px hsl(var(--hanuman-gold) / 0.2);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(var(--hanuman-saffron) / 0.5),
+                  0 0 60px hsl(var(--hanuman-gold) / 0.3);
+    }
+  }
+
+  /* Floating animation for decorative elements */
+  .float-gentle {
+    animation: float-gentle 4s ease-in-out infinite;
+  }
+
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* Fade in animation */
+  .fade-in-up {
+    animation: fade-in-up 0.5s ease-out forwards;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Message bubble animations */
+  .message-appear {
+    animation: message-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes message-appear {
+    from {
+      opacity: 0;
+      transform: translateY(16px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Typing indicator dots */
+  .typing-dot {
+    animation: typing-bounce 1.4s ease-in-out infinite;
+  }
+
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes typing-bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-8px); }
+  }
+
+  /* Decorative border pattern */
+  .temple-border {
+    border-image: repeating-linear-gradient(
+      90deg,
+      hsl(var(--hanuman-gold)) 0px,
+      hsl(var(--hanuman-gold)) 8px,
+      transparent 8px,
+      transparent 16px
+    ) 1;
+  }
+
+  /* Gradient text */
+  .text-gradient-sacred {
+    background: var(--gradient-sacred);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Custom scrollbar */
+  .scrollbar-sacred::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-sacred::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .scrollbar-sacred::-webkit-scrollbar-thumb {
+    background: hsl(var(--hanuman-saffron) / 0.5);
+    border-radius: 3px;
+  }
+
+  .scrollbar-sacred::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--hanuman-saffron) / 0.7);
+  }
+}
