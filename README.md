@@ -21,7 +21,11 @@ The project focuses on combining a modern web-based user interface with a Python
 * API-based architecture with frontend and backend separation
 
 ---
+### Screenshot
 
+<img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/d8389ff9-5a16-4971-aa4f-d1b17c2325ce" />
+
+---
 ### Technology Stack Used
 
 **Frontend Technologies:**
